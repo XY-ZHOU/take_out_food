@@ -23,6 +23,20 @@ public class Order {
         int discountPrice = discountType(allOrder);
         print(allOrder, sumPrice, discountPrice);
     }
+    public static ArrayList transformInfo(ArrayList list) {
+        ArrayList<Item> allOrder = new ArrayList<Item>();
+        for (int i = 0; i < list.size(); i++) {
+            String eachInfo = (String) list.get(i);
+            String itemId = eachInfo.split("x")[0].split(" ")[0];
+            String countStr = eachInfo.split("x")[1].split(" ")[1];
+            int itemCount = Integer.parseInt(countStr);
+            Item item = AllDishes.getItem(itemId);
+            String itemName = item.getName();
+            int itemPrice = itemCount * item.getPrice();
+            allOrder.add(new Item(itemId, itemName,itemCount,itemPrice));
+        }
+        return allOrder;
+    }
 
 }
 
