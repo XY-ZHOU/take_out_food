@@ -44,6 +44,20 @@ public class Order {
         }
         return sumPrice;
     }
+    public static int discountType(ArrayList<Item> allOrder) {
+        int sumPrice = priceOfSum(allOrder);
+        int halfPrice = typeOfHalfPrice(allOrder);
+        int reducePrice = typeOfReduction(sumPrice);
+        int discountPrice = 0;
+        if (reducePrice >= halfPrice) {
+            discountPrice = reducePrice;
+            flag = true;
+        } else {
+            discountPrice = halfPrice;
+            flag = false;
+        }
+        return discountPrice;
+    }
 
 }
 
