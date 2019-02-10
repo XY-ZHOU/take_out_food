@@ -59,6 +59,19 @@ public class Order {
         return discountPrice;
     }
 
+    public static int typeOfHalfPrice(ArrayList<Item> allOrder) {
+        String[] halfPriceArr = {"ITEM0001", "ITEM0022"};
+        int halfPrice = 0;
+        for (int i = 0; i < allOrder.size(); i++) {
+            String itemId = allOrder.get(i).getId();
+            boolean isContains = Arrays.asList(halfPriceArr).contains(itemId);
+            if (isContains) {
+                int itemPrice = allOrder.get(i).getPrice() / 2;
+                halfPrice += itemPrice;
+            }
+        }
+        return halfPrice;
+    }
 }
 
 
