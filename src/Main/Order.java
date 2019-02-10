@@ -37,6 +37,13 @@ public class Order {
         }
         return allOrder;
     }
+    public static int priceOfSum(ArrayList<Item> allOrder) {
+        int sumPrice = 0;
+        for (int i = 0; i < allOrder.size(); i++) {
+            sumPrice += allOrder.get(i).getPrice();
+        }
+        return sumPrice;
+    }
 
 }
 
