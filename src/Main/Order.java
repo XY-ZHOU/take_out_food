@@ -17,12 +17,14 @@ public class Order {
         }
         bestCharge(orderList);
     }
+
     public static void bestCharge(ArrayList list) {
-        ArrayList allOrder=transformInfo(list);
+        ArrayList allOrder = transformInfo(list);
         int sumPrice = priceOfSum(allOrder);
         int discountPrice = discountType(allOrder);
         print(allOrder, sumPrice, discountPrice);
     }
+
     public static ArrayList transformInfo(ArrayList list) {
         ArrayList<Item> allOrder = new ArrayList<Item>();
         for (int i = 0; i < list.size(); i++) {
@@ -33,10 +35,11 @@ public class Order {
             Item item = AllDishes.getItem(itemId);
             String itemName = item.getName();
             int itemPrice = itemCount * item.getPrice();
-            allOrder.add(new Item(itemId, itemName,itemCount,itemPrice));
+            allOrder.add(new Item(itemId, itemName, itemCount, itemPrice));
         }
         return allOrder;
     }
+
     public static int priceOfSum(ArrayList<Item> allOrder) {
         int sumPrice = 0;
         for (int i = 0; i < allOrder.size(); i++) {
@@ -44,6 +47,7 @@ public class Order {
         }
         return sumPrice;
     }
+
     public static int discountType(ArrayList<Item> allOrder) {
         int sumPrice = priceOfSum(allOrder);
         int halfPrice = typeOfHalfPrice(allOrder);
@@ -77,18 +81,16 @@ public class Order {
         int reducePrice = sumPrice >= 30 ? 6 : 0;
         return reducePrice;
     }
-    public static void print(ArrayList<Item> allOrder, int sumPrice, int discountPrice) 
-    {
-        System.out.println("============= 订餐明细 =============");
 
+    public static void print(ArrayList<Item> allOrder, int sumPrice, int discountPrice) {
+        System.out.println("============= 订餐明细 =============");
         for (int i = 0; i < allOrder.size(); i++) {
             String name = allOrder.get(i).getName();
             int count = allOrder.get(i).getCount();
             int price = allOrder.get(i).getPrice();
-            System.out.println(name + " x " + count + " = " +  price + "元");
+            System.out.println(name + " x " + count + " = " + price + "元");
         }
         System.out.println("-----------------------------------");
-
         if (discountPrice == 0) //没折扣
         {
             System.out.println("总计：" + sumPrice + "元");
