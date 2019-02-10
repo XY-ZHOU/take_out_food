@@ -77,6 +77,35 @@ public class Order {
         int reducePrice = sumPrice >= 30 ? 6 : 0;
         return reducePrice;
     }
+    public static void print(ArrayList<Item> allOrder, int sumPrice, int discountPrice) 
+    {
+        System.out.println("============= 订餐明细 =============");
+
+        for (int i = 0; i < allOrder.size(); i++) {
+            String name = allOrder.get(i).getName();
+            int count = allOrder.get(i).getCount();
+            int price = allOrder.get(i).getPrice();
+            System.out.println(name + " x " + count + " = " +  price + "元");
+        }
+        System.out.println("-----------------------------------");
+
+        if (discountPrice == 0) //没折扣
+        {
+            System.out.println("总计：" + sumPrice + "元");
+            System.out.println("===================================");
+        } else {
+            if (flag) {
+                System.out.println("使用优惠:");
+                System.out.println("满30减6元，省" + discountPrice + "元");
+            } else {
+                System.out.println("使用优惠:");
+                System.out.println("指定菜品半价(黄焖鸡，凉皮)，省" + discountPrice + "元");
+            }
+            System.out.println("-----------------------------------");
+            System.out.println("总计：" + (sumPrice - discountPrice) + "元");
+            System.out.println("===================================");
+        }
+    }
 }
 
 
