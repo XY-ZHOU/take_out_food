@@ -17,6 +17,12 @@ public class Order {
         }
         bestCharge(orderList);
     }
+    public static void bestCharge(ArrayList list) {
+        ArrayList allOrder=transformInfo(list);
+        int sumPrice = priceOfSum(allOrder);
+        int discountPrice = discountType(allOrder);
+        print(allOrder, sumPrice, discountPrice);
+    }
 
 }
 
