@@ -91,7 +91,7 @@ public class Order {
             System.out.println(name + " x " + count + " = " + price + "元");
         }
         System.out.println("-----------------------------------");
-        if (discountPrice == 0) //没折扣
+        if (discountPrice == 0)
         {
             System.out.println("总计：" + sumPrice + "元");
             System.out.println("===================================");
