@@ -72,6 +72,11 @@ public class Order {
         }
         return halfPrice;
     }
+
+    public static int typeOfReduction(int sumPrice) {
+        int reducePrice = sumPrice >= 30 ? 6 : 0;
+        return reducePrice;
+    }
 }
 
 
